@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+
 typedef char String[20];
 
 typedef struct{
@@ -42,13 +43,13 @@ typedef struct{
 
 void initDict(Dictionary *d, int size);
 
-Student newStudent(String studID, String fname, String mname, String lname, String program, int sex, int sy, int day, int month, int year);
+Student newStudent(String studID, String fname, String mname, String lname, String program, bool sex, int sy, int day, int month, int year);
 
-SType* createNode(Student stud);
-void insertSortedStudent(Dictionary *d, Student stud, int key);
-void removeStudent();
+SType* createNode(Dictionary d, Student stud);
+bool insertSortedStudent(Dictionary *d, Student stud, int key);
+bool removeStudent(Dictionary *d, String studID, String lname, int key);
 int hash(Dictionary d, String lastname);
-void visualize(Dictionary d);
+void visualize(Dictionary d, int size);
 
 
 #endif
